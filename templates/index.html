@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Fitness RAG Chatbot</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="chat-app">
+
+  <div class="header">
+    <img src="/static/bot.png">
+    <span>Fitness Coach</span>
+  </div>
+
+  <div id="chat"></div>
+
+  <Confirm id="input-area">
+    <input id="msg" placeholder="Ask about diet, muscle, fat loss...">
+    <button onclick="send()">➤</button>
+  </Confirm>
+
+</div>
+
+<script>
+fetch("/reset", { method: "POST" });   // clear memory on new visit
+
+/* Show welcome message */
+window.onload = () => {
+  add("bot", "How can I help you man? 💪");
+};
+
+async function send(){
+  let input = document.getElementById("msg");
+  let text = input.value.trim();
+  if(!text) return;
+
+  add("user", text);
+  input.value="";
+
+  const res = await fetch("/chat",{
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body:JSON.stringify({message:text})
+  });
+
+  const data = await res.json();
+  add("bot", data.response);
+}
+
+function add(type,text){
+  const chat = document.getElementById("chat");
+  chat.innerHTML += `
+    <div class="msg ${type}">
+      <img src="/static/${type}.png">
+      <div class="bubble">${format(text)}</div>
+    </div>`;
+  chat.scrollTop = chat.scrollHeight;
+}
+
+function format(text){
+    return text
+    .replace(/\*\*(.*?)\*\*/g, "<b>$1</b>")   // bold
+    .replace(/\n/g, "<br>");                 // line breaks
+}
+</script>
+
+</body>
+</html>
