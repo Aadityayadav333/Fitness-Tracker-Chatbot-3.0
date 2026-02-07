@@ -9,3 +9,4 @@ langchain-huggingface
 transformers
 onnxruntime
 sentencepiece
+sentence-transformers
