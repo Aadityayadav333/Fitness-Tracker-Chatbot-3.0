@@ -1,7 +1,6 @@
 flask
 langchain
 langchain-community
-sentence-transformers
 faiss-cpu
 numpy
 flask-sqlalchemy
