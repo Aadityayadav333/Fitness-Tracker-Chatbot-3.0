@@ -2,9 +2,9 @@ flask
 langchain
 langchain-community
 faiss-cpu
-numpy
-flask-sqlalchemy
+numpy<2
 python-dotenv
 langchain-groq
 langchain-huggingface
-
+sentence-transformers==2.6.1
+torch==2.1.2+cpu --extra-index-url https://download.pytorch.org/whl/cpu
