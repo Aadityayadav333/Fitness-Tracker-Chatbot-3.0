@@ -1,4 +1,4 @@
-# backend/rag/retriever.py
+# retriever.py
 
 from langchain_community.vectorstores import FAISS
 from langchain_huggingface import HuggingFaceEmbeddings
@@ -8,10 +8,10 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 FAISS_PATH = os.path.join(BASE_DIR, "faiss_index")
 
 def get_retriever():
-    # Use HuggingFaceEmbeddings in CPU-only mode
+    # Only for loading, no heavy embedding computation
     embeddings = HuggingFaceEmbeddings(
-        model_name="all-MiniLM-L6-v2",
-        model_kwargs={"device": "cpu"}  # important, avoids GPU / torch memory
+        model_name="sentence-transformers/all-MiniLM-L6-v2",
+        model_kwargs={"device": "cpu"}  # avoids GPU/torch
     )
 
     vectorstore = FAISS.load_local(
@@ -20,9 +20,4 @@ def get_retriever():
         allow_dangerous_deserialization=True
     )
 
-    retriever = vectorstore.as_retriever(
-        search_type="similarity",
-        search_kwargs={"k": 3}
-    )
-
-    return retriever
+    return vectorstore.as_retriever(search_type="similarity", search_kwargs={"k": 3})
