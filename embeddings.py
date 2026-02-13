@@ -1,9 +1,9 @@
 import os
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-# Use the modern integration package
-from langchain_huggingface import HuggingFaceEmbeddings 
+from langchain_cohere import CohereEmbeddings
 from langchain_community.vectorstores import FAISS
 
+# Paths
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DOC_PATH = os.path.join(BASE_DIR, "documents", "nutrition_knowledge.txt")
 DB_PATH = os.path.join(BASE_DIR, "faiss_index")
@@ -17,7 +17,7 @@ def create_embeddings():
     with open(DOC_PATH, "r", encoding="utf-8") as f:
         text = f.read()
 
-    # 2. Chunk text (RAG friendly)
+    # 2. Chunk text for RAG
     splitter = RecursiveCharacterTextSplitter(
         chunk_size=400,
         chunk_overlap=80,
@@ -25,16 +25,15 @@ def create_embeddings():
     )
     docs = splitter.create_documents([text])
 
-    # 3. Load embedding model (This uses your local CPU/GPU)
-    # This specifically avoids the deprecated community class
-    embeddings = HuggingFaceEmbeddings(
-        model_name="sentence-transformers/all-MiniLM-L6-v2"
+    # 3. Cohere cloud embeddings (lightweight)
+    embeddings = CohereEmbeddings(
+        model="embed-english-v3.0"   # best current Cohere embedding model
     )
 
-    # 4. Create FAISS index
+    # 4. Build FAISS vector DB
     vectorstore = FAISS.from_documents(docs, embeddings)
 
-    # 5. Save index
+    # 5. Save locally (or inside container)
     vectorstore.save_local(DB_PATH)
 
     print(f"✅ FAISS index created with {len(docs)} chunks at {DB_PATH}")
