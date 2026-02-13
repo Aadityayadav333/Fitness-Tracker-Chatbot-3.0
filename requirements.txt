@@ -1,5 +1,6 @@
 flask
 langchain
+langchain-groq
 langchain-community
 faiss-cpu
 numpy<2
