@@ -1,17 +1,17 @@
 # retriever.py
 
-from langchain_community.vectorstores import FAISS
-from langchain_huggingface import HuggingFaceEmbeddings
 import os
-
+from langchain_community.vectorstores import FAISS
+from langchain_cohere import CohereEmbeddings
+from dotenv import load_dotenv
+load_dotenv()
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 FAISS_PATH = os.path.join(BASE_DIR, "faiss_index")
 
 def get_retriever():
-    # Only for loading, no heavy embedding computation
-    embeddings = HuggingFaceEmbeddings(
-        model_name="sentence-transformers/all-MiniLM-L6-v2",
-        model_kwargs={"device": "cpu"}  # avoids GPU/torch
+    # Cohere cloud embeddings (no local models)
+    embeddings = CohereEmbeddings(
+        model="embed-english-v3.0"
     )
 
     vectorstore = FAISS.load_local(
@@ -20,4 +20,7 @@ def get_retriever():
         allow_dangerous_deserialization=True
     )
 
-    return vectorstore.as_retriever(search_type="similarity", search_kwargs={"k": 3})
+    return vectorstore.as_retriever(
+        search_type="similarity",
+        search_kwargs={"k": 3}
+    )

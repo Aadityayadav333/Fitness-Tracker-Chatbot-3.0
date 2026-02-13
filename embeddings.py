@@ -2,6 +2,12 @@ import os
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_cohere import CohereEmbeddings
 from langchain_community.vectorstores import FAISS
+from dotenv import load_dotenv
+import os
+
+load_dotenv()  # loads .env automatically
+
+COHERE_API_KEY = os.environ["COHERE_API_KEY"]
 
 # Paths
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -27,7 +33,8 @@ def create_embeddings():
 
     # 3. Cohere cloud embeddings (lightweight)
     embeddings = CohereEmbeddings(
-        model="embed-english-v3.0"   # best current Cohere embedding model
+        model="embed-english-v3.0",   # best current Cohere embedding model
+        cohere_api_key= os.environ["COHERE_API_KEY"]
     )
 
     # 4. Build FAISS vector DB
@@ -36,7 +43,7 @@ def create_embeddings():
     # 5. Save locally (or inside container)
     vectorstore.save_local(DB_PATH)
 
-    print(f"✅ FAISS index created with {len(docs)} chunks at {DB_PATH}")
+    print(f"FAISS index created with {len(docs)} chunks at {DB_PATH}")
 
 if __name__ == "__main__":
     create_embeddings()

@@ -6,6 +6,7 @@
 <title>Fitness RAG Chatbot</title>
 <link rel="stylesheet" href="/static/style.css">
 </head>
+
 <body>
 
 <div class="chat-app">
@@ -17,17 +18,16 @@
 
   <div id="chat"></div>
 
-  <Confirm id="input-area">
+  <div id="input-area">
     <input id="msg" placeholder="Ask about diet, muscle, fat loss...">
     <button onclick="send()">➤</button>
-  </Confirm>
+  </div>
 
 </div>
 
 <script>
-fetch("/reset", { method: "POST" });   // clear memory on new visit
+fetch("/reset", { method: "POST" });
 
-/* Show welcome message */
 window.onload = () => {
   add("bot", "How can I help you man? 💪");
 };
@@ -55,16 +55,12 @@ function add(type,text){
   chat.innerHTML += `
     <div class="msg ${type}">
       <img src="/static/${type}.png">
-      <div class="bubble">${format(text)}</div>
+      <div class="bubble">${text}</div>
     </div>`;
   chat.scrollTop = chat.scrollHeight;
 }
 
-function format(text){
-    return text
-    .replace(/\*\*(.*?)\*\*/g, "<b>$1</b>")   // bold
-    .replace(/\n/g, "<br>");                 // line breaks
-}
+
 </script>
 
 </body>

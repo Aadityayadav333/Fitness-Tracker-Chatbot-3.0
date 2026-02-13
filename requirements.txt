@@ -4,9 +4,5 @@ langchain-community
 faiss-cpu
 numpy<2
 python-dotenv
-langchain-groq
-langchain-huggingface
-transformers
-onnxruntime
-sentencepiece
-sentence-transformers
+
+
