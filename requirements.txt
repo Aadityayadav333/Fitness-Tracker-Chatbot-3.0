@@ -1,3 +1,5 @@
+langchain-cohere
+cohere
 
 
 flask==3.0.2
