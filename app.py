@@ -122,6 +122,7 @@ def chat():
     session["history"].append((user_msg, response))
     session.modified = True
 
+    source_snippets_html = source_snippets.replace("\n", "<br>")
     final_answer = f"""
     <div style="white-space: pre-line;">
     {response}
@@ -133,7 +134,7 @@ def chat():
 
     <div id="rag-refs" class="rag-ref hidden">
     <b>References from knowledge base</b><br><br>
-    {source_snippets.replace("\n", "<br>")}
+    {source_snippets_html}
     </div>
 
     <script>
