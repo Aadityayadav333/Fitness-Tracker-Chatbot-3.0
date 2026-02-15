@@ -10,7 +10,7 @@ def load_knowledge_base():
     # Example: load your text files / data here
     docs = []
 
-    with open("knowledge.txt", "r", encoding="utf-8") as f:
+    with open("nutrition_knowledge.txt", "r", encoding="utf-8") as f:
         text = f.read()
         chunks = text.split("\n\n")  # simple chunking
 
