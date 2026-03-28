@@ -23,6 +23,9 @@
 
 Built entirely on Flask, LangChain, FAISS, and Cohere embeddings, the chatbot strictly stays on-topic — it will not discuss anything outside the fitness domain, ensuring every response is focused, relevant, and actionable.
 
+## Demo at Work
+https://fitness-tracker-chatbot-3-0.onrender.com/
+
 ---
 
 ## ✨ Features
@@ -162,28 +165,27 @@ Visit `http://localhost:8080` in your browser.
 ❌ "What's the capital of France?" → (Redirected — not fitness-related)
 ```
 
----
+## 🌟 Fitness Influencers — The Inspiration Behind the Coach
 
-## 🌟 Fitness Influencers That Inspired This Project
-
-The knowledge base and fitness philosophy behind this chatbot draws inspiration from the content, training methodologies, and nutrition wisdom of these five incredible creators:
+The AI fitness coach in this app is trained on knowledge inspired by the training philosophies, nutrition guidance, and workout principles of these five incredible creators. Hours of their YouTube content shaped the thinking behind this chatbot's knowledge base.
 
 <br>
 
 <div align="center">
 
-| <img src="./static/images/max_euceda.png" width="130" height="130" style="border-radius:50%; object-fit:cover" alt="Max Euceda"/> | <img src="./static/images/jeet_selal.jpg" width="130" height="130" style="border-radius:50%; object-fit:cover" alt="Jeet Selal"/> | <img src="./static/images/saket_gokhle.jpg" width="130" height="130" style="border-radius:50%; object-fit:cover" alt="Saket Gokhle"/> | <img src="./static/images/jeff_nippard.jpg" width="130" height="130" style="border-radius:50%; object-fit:cover" alt="Jeff Nippard"/> | <img src="./static/images/yatinder_singh.jpg" width="130" height="130" style="border-radius:50%; object-fit:cover" alt="Yatinder Singh"/> |
+| | | | | |
 |:---:|:---:|:---:|:---:|:---:|
-| **Max Euceda** | **Jeet Selal** | **Saket Gokhle** | **Jeff Nippard** | **Yatinder Singh** |
-| 🇺🇸 Calisthenics & Aesthetics | 🇮🇳 Natural Bodybuilding | 🇮🇳 Fitness & Lifestyle | 🇨🇦 Science-Based Training | 🇮🇳 Mr. Asia Champion |
+| <img src="https://i.redd.it/max-euceda-22-years-old-59-185lbs-claims-science-based-v0-zkznkzdqeygc1.png?width=336&format=png&auto=webp&s=e7a0c76f4ea0e25efe5607d539f845f76d78530b" width="120" height="120" style="border-radius:50%;object-fit:cover" alt="Max Euceda"/> | <img src="https://www.optimumnutrition.co.in/cdn/shop/files/GWP05558.webp?v=1760004676" width="120" height="120" style="border-radius:50%;object-fit:cover" alt="Jeet Selal"/> | <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBVWU0nTnZot6Ezp09RLXFnXWgYzd5NHQF6w&s" width="120" height="120" style="border-radius:50%;object-fit:cover" alt="Saket Gokhle"/> | <img src="https://images.squarespace-cdn.com/content/v1/64c8035f53e9a56246c7c294/802d2e1f-82e7-4809-acee-b8aeb9b04b13/Jeff-Nippard.png" width="120" height="120" style="border-radius:50%;object-fit:cover" alt="Jeff Nippard"/> | <img src="https://preview.redd.it/a-day-in-life-of-a-bodybuilder-yatinder-singh-v0-oz5kdstxsxx21.jpg?width=800&format=pjpg&auto=webp&s=ce04e98179331f199cff5c4d29f258741ce6d753" width="120" height="120" style="border-radius:50%;object-fit:cover" alt="Yatinder Singh"/> |
+| **[Max Euceda](https://www.youtube.com/@MaxEuceda7)** | **[Jeet Selal](https://www.youtube.com/c/JeetSelalAesthetics)** | **[Saket Gokhle](https://www.youtube.com/@SaketGokhaleVlogs)** | **[Jeff Nippard](https://www.youtube.com/@JeffNippard)** | **[Yatinder Singh](https://www.youtube.com/@YatinderSinghOfficial)** |
+| 🇺🇸 Calisthenics & Aesthetics | 🇮🇳 Natural Bodybuilding & Diet | 🇮🇳 Fitness, Lifestyle & Fat Loss | 🇨🇦 Science-Based Strength Training | 🇮🇳 Mr. Asia · Powerlifting & Motivation |
+| [![YouTube](https://img.shields.io/badge/YouTube-Subscribe-red?style=flat-square&logo=youtube)](https://www.youtube.com/@MaxEuceda) | [![YouTube](https://img.shields.io/badge/YouTube-Subscribe-red?style=flat-square&logo=youtube)](https://www.youtube.com/@JeetSelal) | [![YouTube](https://img.shields.io/badge/YouTube-Subscribe-red?style=flat-square&logo=youtube)](https://www.youtube.com/@SaketGokhle) | [![YouTube](https://img.shields.io/badge/YouTube-Subscribe-red?style=flat-square&logo=youtube)](https://www.youtube.com/@JeffNippard) | [![YouTube](https://img.shields.io/badge/YouTube-Subscribe-red?style=flat-square&logo=youtube)](https://www.youtube.com/@YatinderSingh) |
 
 </div>
 
 <br>
 
-> 📸 **Note:** Replace the `ADD_IMAGE_URL_HERE` placeholders above with actual image URLs (e.g., from your `static/` folder or hosted online). Example: `![Max Euceda](./static/images/max_euceda.jpg)`
-
 ---
+
 
 ## 📦 Dependencies
 
@@ -236,22 +238,9 @@ This runs a standalone test of the retriever and verifies that relevant document
 - [ ] Personalized workout plan generator
 - [ ] Voice input support
 - [ ] Mobile-first UI redesign
-
----
-
-## 👨‍💻 Author
-
-**Aaditya Yadav**
-B.Tech CSE | Indore, India
-[GitHub](https://github.com/Aadityayadav333)
-
-> *"Code to know oneself and others better."*
-
----
-
-## 📄 License
-
-This project is licensed under the [MIT License](LICENSE).
+      
+## Mobile and Web PWA App Made at : 
+https://github.com/Aadityayadav333/Health-Tracker-PWA/blob/main/README.md
 
 ---
 
